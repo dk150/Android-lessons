@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc370839-0ba5-4d26-8b9e-353751b3ab6e" name="Default Changelist" comment="Initial commit" />
+    <list default="true" id="0ce1af4c-d29c-41e3-b540-cf8ccbb7995c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -21,19 +17,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1wzCdgQtCtMwGGzoJ11TD424Kj6" />
+  <component name="ProjectId" id="1wzScevglRScYoRscLdiD86AMvV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_28" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-08-20T10:08:46.391Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -135,65 +128,16 @@
     </configuration>
   </component>
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fc370839-0ba5-4d26-8b9e-353751b3ab6e" name="Default Changelist" comment="" />
-      <created>1629452118812</created>
+      <changelist id="0ce1af4c-d29c-41e3-b540-cf8ccbb7995c" name="Default Changelist" comment="" />
+      <created>1629460004239</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1629452118812</updated>
+      <updated>1629460004239</updated>
     </task>
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
-    <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="100" y="125" width="1240" height="605" key="AVDManager" timestamp="1629454118941">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="100" y="125" width="1240" height="605" key="AVDManager/0.25.1440.805@0.25.1440.805" timestamp="1629454118941" />
-    <state x="278" y="25" key="CommitChangelistDialog2" timestamp="1629453329104">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="278" y="25" key="CommitChangelistDialog2/0.25.1440.805@0.25.1440.805" timestamp="1629453329104" />
-    <state x="578" y="328" key="Github.ShareDialog" timestamp="1629455809230">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="578" y="328" key="Github.ShareDialog/0.25.1440.805@0.25.1440.805" timestamp="1629455809230" />
-    <state x="452" y="138" key="Github.UntrackedFilesDialog" timestamp="1629452719963">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="452" y="138" key="Github.UntrackedFilesDialog/0.25.1440.805@0.25.1440.805" timestamp="1629452719963" />
-    <state x="221" y="63" key="SettingsEditor" timestamp="1629456918884">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="221" y="63" key="SettingsEditor/0.25.1440.805@0.25.1440.805" timestamp="1629456918884" />
-    <state x="320" y="164" key="Vcs.Push.Dialog.v2" timestamp="1629454958481">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1629454958481" />
-    <state x="412" y="182" width="615" height="490" key="find.popup" timestamp="1629453036939">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="412" y="182" width="615" height="490" key="find.popup/0.25.1440.805@0.25.1440.805" timestamp="1629453036939" />
-    <state x="516" y="320" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1629455778707">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="516" y="320" key="git4idea.remote.GitConfigureRemotesDialog/0.25.1440.805@0.25.1440.805" timestamp="1629455778707" />
-    <state x="262" y="237" width="1095" height="410" key="svn.repositoryBrowser" timestamp="1629452889031">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="262" y="237" width="1095" height="410" key="svn.repositoryBrowser/0.25.1440.805@0.25.1440.805" timestamp="1629452889031" />
-    <state x="603" y="220" key="svn4idea.import.options" timestamp="1629452885835">
-      <screen x="0" y="25" width="1440" height="805" />
-    </state>
-    <state x="603" y="220" key="svn4idea.import.options/0.25.1440.805@0.25.1440.805" timestamp="1629452885835" />
   </component>
 </project>
