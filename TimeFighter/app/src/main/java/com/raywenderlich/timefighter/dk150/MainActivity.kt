@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var score = 0
     private var time = 0
     private var inProgress = false
+    private var highScore = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +55,17 @@ class MainActivity : AppCompatActivity() {
         }
         var finishGame = Runnable() {
             findViewById<Button>(R.id.button).setOnClickListener(null)
-            var result = findViewById<TextView>(R.id.result);
-            result.text = getString(R.string.result, score)
+            var result = findViewById<TextView>(R.id.result)
+            var sP = getSharedPreferences("score", MODE_PRIVATE)
+            highScore = sP.getInt("highScore", 0)
+            var resText: String
+            if(score > highScore) {
+                sP.edit().putInt("highScore", score).apply()
+                resText = getString(R.string.high_score, score)
+            } else {
+                resText = getString(R.string.no_score, score, highScore)
+            }
+            result.text = resText
             result.visibility = View.VISIBLE
             Timer("main", false).schedule(3000) {
                 mainHandler.post(newGame)
