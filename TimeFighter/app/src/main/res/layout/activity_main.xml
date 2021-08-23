@@ -28,18 +28,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text='"Time Left: 5"' />
 
-    <TextView
-        android:id="@+id/resultMsgTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/tapMeButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:text="@string/no_score" />
-
     <Button
         android:id="@+id/tapMeButton"
         android:layout_width="wrap_content"
