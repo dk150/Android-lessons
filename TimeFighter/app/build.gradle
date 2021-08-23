@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.raywenderlich.timefighter.dk150"
+        applicationId "com.raywenderlich.timefighter.dkatarina"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

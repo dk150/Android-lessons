@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/gameScoreTextView"
+    <Button
+        android:id="@+id/tapMeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/your_score"
+        android:layout_height="48dp"
+        android:text="@string/tap_me"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/buttonColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text='"Your Score: 0"' />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/timeLeftTextView"
@@ -24,18 +26,21 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/your_time"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text='"Time Left: 5"' />
 
-    <Button
-        android:id="@+id/tapMeButton"
+    <TextView
+        android:id="@+id/gameScoreTextView"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="@string/tap_me"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/your_score"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text='"Your Score: 0"' />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.raywenderlich.timefighter.dk150
+package com.raywenderlich.timefighter.dkatarina
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

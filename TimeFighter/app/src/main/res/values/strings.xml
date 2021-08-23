@@ -1,8 +1,11 @@
 <resources>
     <string name="tap_me">Tap Me!</string>
-    <string name="app_name">TimeFighter</string>
+    <string name="app_name">TFighter</string>
     <string name="your_score">Your Score: %1$d</string>
     <string name="high_score">Congratulations! New high score: %1$d</string>
     <string name="no_score">Your score: %1$d (current high score is %2$d)</string>
     <string name="your_time">Time Left: %1$d</string>
+    <string name="aboutMenu">About</string>
+    <string name="about_title">TimeFighter %1$s</string>
+    <string name="aboutMessage">Created by: dkatarina</string>
 </resources>

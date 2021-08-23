@@ -1,4 +1,4 @@
-package com.raywenderlich.timefighter.dk150
+package com.raywenderlich.timefighter.dkatarina
 
 import org.junit.Test
 

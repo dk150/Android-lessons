@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TimeFighter</string>
+    <string name="app_name">TFighter</string>
     <string name="tap_me">Klikni Me!</string>
     <string name="your_score">Tvoj Rezultat: %1$d</string>
     <string name="high_score">Cestitamo! Novi najbolji rezultat: %1$d</string>
     <string name="no_score">Tvoj rezultat: %1$d (tekuci najbolji rezultat: %2$d)</string>
     <string name="your_time">Preostalo Vreme: %1$d</string>
+    <string name="aboutMenu">Info</string>
+    <string name="about_title">Time Fighter %1$s</string>
+    <string name="aboutMessage">Autor: dkatarina</string>
 </resources>
