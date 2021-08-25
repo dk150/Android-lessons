@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="deploymentTargetDropDown">
     <runningDeviceTargetSelectedWithDropDown>
@@ -11,12 +11,7 @@
           </Key>
         </deviceKey>
       </Target>
-<<<<<<< HEAD
-    </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2021-08-23T22:22:39.683506Z" />
-=======
     </targetSelectedWithDropDown>
     <timeTargetWasSelectedWithDropDown value="2021-08-23T21:46:11.090151Z" />
->>>>>>> b14a5bbe89dfc59d385ede969ed7122bc4ea1ac9
   </component>
 </project>
