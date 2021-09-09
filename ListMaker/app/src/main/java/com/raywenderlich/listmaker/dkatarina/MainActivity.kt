@@ -1,36 +1,36 @@
 package com.raywenderlich.listmaker.dkatarina
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.listmaker.dkatarina.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var toDoListRecyclerView: RecyclerView
+    private var listDataManager: ListDataManager = ListDataManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val lists = listDataManager.readLists()
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        toDoListRecyclerView = findViewById(R.id.lists_recyclerview)
+        toDoListRecyclerView.layoutManager = LinearLayoutManager(this)
+        toDoListRecyclerView.adapter = ToDoListAdapter(lists)
+
+        binding.fab.setOnClickListener {
+            showCreateToDoListDialog()
         }
     }
 
@@ -50,9 +50,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+    private fun showCreateToDoListDialog() {
+        val dialogTitle = getString(R.string.name_of_list)
+        val positiveButtonTitle = getString(R.string.create_list)
+        val myDialog = AlertDialog.Builder(this)
+        val todoTitleEditText = EditText(this)
+
+        todoTitleEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
+
+        myDialog.setTitle(dialogTitle)
+        myDialog.setView(todoTitleEditText)
+        myDialog.setPositiveButton(positiveButtonTitle
+        ) { dialog, _ ->
+            dialog.dismiss()
+            val adapter = toDoListRecyclerView.adapter as ToDoListAdapter
+            val listName = adapter.listName(todoTitleEditText.text.toString())
+            val taskList = TaskList(listName)
+            listDataManager.saveList(taskList, adapter.itemCount)
+            adapter.addList(taskList) }
+        myDialog.create().show()
     }
 }
