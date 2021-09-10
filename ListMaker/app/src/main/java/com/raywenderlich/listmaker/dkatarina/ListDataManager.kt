@@ -9,8 +9,10 @@ class ListDataManager(private val context: Context) {
 
     fun saveList(list: TaskList, listPosition: Int) {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context).edit()
-        val tasksSet = LinkedHashSet<String>()
-        tasksSet.addAll(list.tasks)
+        val tasksSet = HashSet<String>()
+        for(task in list.tasks) {
+            tasksSet.add("${list.tasks.indexOf(task)} $task")
+        }
         sharedPrefs.putStringSet("$listPosition ${list.name}", tasksSet)
         sharedPrefs.apply()
     }
@@ -25,6 +27,11 @@ class ListDataManager(private val context: Context) {
         lists.sortBy { taskList -> taskList.name.split(" ")[0].toInt() }
         for(taskList in lists) {
             taskList.name = taskList.name.replaceFirst(Regex("[0-9]+ "), "")
+            taskList.tasks.sortBy{ task -> task.split(" ")[0].toInt() }
+            for(i in 0 until taskList.tasks.size) {
+                val task = taskList.tasks[i]
+                taskList.tasks[i] = task.replaceFirst(Regex("[0-9]+ "), "")
+            }
         }
         return lists
     }
