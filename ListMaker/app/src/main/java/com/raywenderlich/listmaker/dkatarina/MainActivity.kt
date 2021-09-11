@@ -5,18 +5,21 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.raywenderlich.listmaker.dkatarina.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), ToDoListAdapter.TodoListClickListener {
+class MainActivity : AppCompatActivity(), TodoListFragment.OnFragmentInteractionListener {
+
     private lateinit var binding: ActivityMainBinding
-    private lateinit var toDoListRecyclerView: RecyclerView
-    private val listDataManager: ListDataManager = ListDataManager(this)
+    // private var todoListFragment = TodoListFragment.newInstance()
+    private lateinit var todoListFragment: TodoListFragment
 
     companion object {
         const val INTENT_LIST_KEY = "list"
@@ -31,15 +34,14 @@ class MainActivity : AppCompatActivity(), ToDoListAdapter.TodoListClickListener 
 
         setSupportActionBar(binding.toolbar)
 
-        val lists = listDataManager.readLists()
-
-        toDoListRecyclerView = findViewById(R.id.lists_recyclerview)
-        toDoListRecyclerView.layoutManager = LinearLayoutManager(this)
-        toDoListRecyclerView.adapter = ToDoListAdapter(lists, this)
-
         findViewById<FloatingActionButton>(R.id.add_list_fab).setOnClickListener {
             showCreateToDoListDialog()
         }
+
+        todoListFragment = supportFragmentManager.findFragmentById(R.id.todo_list_fragment) as TodoListFragment
+        /*supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, todoListFragment)
+            .commit()*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,15 +56,9 @@ class MainActivity : AppCompatActivity(), ToDoListAdapter.TodoListClickListener 
             data?.let {
                 val list = data.getParcelableExtra<TaskList>(INTENT_LIST_KEY)!!
                 val listPos = data.getIntExtra(INTENT_LIST_POS_KEY, -1)
-                listDataManager.saveList(list, listPos)
-                updateLists()
+                todoListFragment.saveList(list, listPos)
             }
         }
-    }
-
-    private fun updateLists() {
-        val lists = listDataManager.readLists()
-        toDoListRecyclerView.adapter = ToDoListAdapter(lists, this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -87,11 +83,8 @@ class MainActivity : AppCompatActivity(), ToDoListAdapter.TodoListClickListener 
         myDialog.setView(todoTitleEditText)
         myDialog.setPositiveButton(positiveButtonTitle
         ) { dialog, _ ->
-            val adapter = toDoListRecyclerView.adapter as ToDoListAdapter
-            val listName = adapter.listName(todoTitleEditText.text.toString())
-            val taskList = TaskList(listName)
-            listDataManager.saveList(taskList, adapter.itemCount)
-            adapter.addList(taskList)
+            val listName = todoTitleEditText.text.toString()
+            val taskList = todoListFragment.addList(listName)
             dialog.dismiss()
             showTasklistItems(taskList)
         }
@@ -99,14 +92,14 @@ class MainActivity : AppCompatActivity(), ToDoListAdapter.TodoListClickListener 
     }
 
     private fun showTasklistItems(list: TaskList) {
+        val listPos = todoListFragment.listPos(list)
         val taskListItem = Intent(this, DetailActivity::class.java)
         taskListItem.putExtra(INTENT_LIST_KEY, list)
-        val adapter = toDoListRecyclerView.adapter as ToDoListAdapter
-        taskListItem.putExtra(INTENT_LIST_POS_KEY, adapter.listPos(list))
+        taskListItem.putExtra(INTENT_LIST_POS_KEY, listPos)
         startActivityForResult(taskListItem, LIST_DETAIL_REQUEST_CODE)
     }
 
-    override fun listItemClicked(list: TaskList) {
+    override fun onTodoListClicked(list: TaskList) {
         showTasklistItems(list)
     }
 

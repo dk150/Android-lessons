@@ -15,7 +15,7 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var list: TaskList
     private var listPos: Int = -1
-    private lateinit var taskListRecyclerView: RecyclerView
+    private lateinit var taskDetailFragment: TaskDetailFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,14 +25,16 @@ class DetailActivity : AppCompatActivity() {
         listPos = intent.getIntExtra(MainActivity.INTENT_LIST_POS_KEY, -1)
         title = list.name
 
-        taskListRecyclerView = findViewById(R.id.task_list_recyclerview)
-        taskListRecyclerView.layoutManager = LinearLayoutManager(this)
-        taskListRecyclerView.adapter = TaskListAdapter(list)
+        taskDetailFragment = TaskDetailFragment.newInstance(list, listPos)
 
         val addTaskButton: FloatingActionButton = findViewById(R.id.add_task_fab)
         addTaskButton.setOnClickListener {
             showCreateTaskDialog()
         }
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.task_fragment_container, taskDetailFragment)
+            .commit()
     }
 
     private fun showCreateTaskDialog() {
@@ -42,8 +44,7 @@ class DetailActivity : AppCompatActivity() {
         editTaskName.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
         taskDialog.setView(editTaskName)
         taskDialog.setPositiveButton(R.string.add_task) { dialog, _ ->
-            val adapter = taskListRecyclerView.adapter as TaskListAdapter
-            adapter.addTask(editTaskName.text.toString())
+            taskDetailFragment.addTask(editTaskName.text.toString())
             dialog.dismiss()
         }
         taskDialog.create().show()
