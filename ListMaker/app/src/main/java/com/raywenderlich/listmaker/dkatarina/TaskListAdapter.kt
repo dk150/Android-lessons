@@ -8,11 +8,12 @@ class TaskListAdapter(private val list: TaskList) : Adapter<TaskListViewHolder>(
 
     fun addTask(task: String) {
         list.tasks.add(task)
-        // notifyItemInserted(list.tasks.lastIndex)
+        notifyItemInserted(list.tasks.lastIndex)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.task_view_holder, parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.task_view_holder, parent, false)
         return TaskListViewHolder(view)
     }
 
@@ -21,4 +22,11 @@ class TaskListAdapter(private val list: TaskList) : Adapter<TaskListViewHolder>(
     }
 
     override fun getItemCount() = list.tasks.size
+    fun taskName(taskName: String): String =
+        if (taskName.isEmpty()) {
+            "Task ${list.tasks.size + 1}"
+        } else {
+            taskName
+        }
+
 }

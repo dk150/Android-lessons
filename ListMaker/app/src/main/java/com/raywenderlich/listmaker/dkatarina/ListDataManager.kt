@@ -1,11 +1,14 @@
 package com.raywenderlich.listmaker.dkatarina
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.preference.PreferenceManager
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ListDataManager(private val context: Context) {
+class ListDataManager(application: Application) : AndroidViewModel(application) {
+
+    private val context = application.applicationContext
 
     fun saveList(list: TaskList, listPosition: Int) {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context).edit()
