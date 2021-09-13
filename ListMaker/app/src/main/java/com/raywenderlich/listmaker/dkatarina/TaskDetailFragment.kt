@@ -18,7 +18,7 @@ class TaskDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            list = it?.getParcelable(ARG_LIST)!!
+            list = it.getParcelable(ARG_LIST)!!
             listPos = it.getInt(ARG_LIST_POS)
         }
 
